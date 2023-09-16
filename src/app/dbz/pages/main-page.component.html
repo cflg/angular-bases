@@ -1,0 +1,12 @@
+<h1>DBZ Personajes</h1>
+<hr>
+<div class="row">
+  <!-- ! listCharacter es la propiedad establecida dentro del component de esta etiqueta  app-list-dbz-characters y characters es una prop dentro del ts de esta component-->
+  <app-list-dbz-characters
+  (onDelete)="onDeleteCharacter($event)"
+  class="col" [listCharacter]="characters" ></app-list-dbz-characters>
+  <app-add-pj class="col"
+  (newCharacter)="methodNewCharacter($event)"
+  ></app-add-pj>
+
+</div>

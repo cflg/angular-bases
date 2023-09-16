@@ -1,0 +1,39 @@
+
+    <h4>Listado de personajes</h4>
+    <!-- <ul class="list-group">
+      ! con *ngFor recorro todos los elementos de la propiedad listCharacter de este modulo
+      <li *ngFor="let character of listCharacter" class="list-group-item">{{ character.name }} - {{ character.power }}</li>
+  </ul> -->
+<ul class="list-group">
+      <!-- ! de esta manera obtengo el indice de cada elemento -->
+      <!-- !
+      ! let isFirst = first; primer elemento
+      ! let isLast = last ultimo elemento
+      ! let isEven = even elemento par
+      ! let isOdd = odd elemento impar
+
+      ! con ngClass puedo hacer un renderizado condicional de clases
+      -->
+      <li *ngFor="let character of listCharacter;let i = index;
+      let isFirst = first;
+      let isLast = last
+      let isEven = even
+      let isOdd = odd
+      " class="list-group-item"
+      [ngClass]="{ 'list-group-item-success': isFirst,
+      'list-group-item-dark': !isLast && !isFirst,
+      'list-group-item-danger': isLast
+     }"
+      >
+        <span class="text-primary"><b>{{i + 1}}. </b></span>
+        <b>{{ character.name }}</b> - Power: {{ character.power }}
+        <span>{{ isFirst ? 'Primer elemento ' : '' }}</span>
+        <span>{{ isLast ? 'Ultimo elemento ' : '' }}</span>
+        <span>{{ !isFirst && !isLast ? 'Ni primero ni ultimo ' : '' }}</span>
+        <span>{{ isEven ? 'Elemento par' : '' }}</span>
+        <span> {{ isOdd ? 'Elemento impar' : '' }}</span>
+        <button
+        (click)="deleteCharacter(i)"
+        class="btn btn-danger">X</button>
+      </li>
+  </ul>
