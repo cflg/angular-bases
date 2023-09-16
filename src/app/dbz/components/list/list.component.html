@@ -33,7 +33,7 @@
         <span>{{ isEven ? 'Elemento par' : '' }}</span>
         <span> {{ isOdd ? 'Elemento impar' : '' }}</span>
         <button
-        (click)="deleteCharacter(i)"
+        (click)="deleteCharacter(character.id!)"
         class="btn btn-danger">X</button>
       </li>
   </ul>

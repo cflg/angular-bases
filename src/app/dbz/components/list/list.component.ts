@@ -11,9 +11,11 @@ export class ListComponent {
   @Input()//! con este decorador completo esta propiedad con valores que vienen de otro componente
   public listCharacter: Character[] = []
   @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter()
+  public onDelete: EventEmitter<string> = new EventEmitter()
 
-  deleteCharacter( index: number ): void{
-    this.onDelete.emit(index)
+  deleteCharacter( id: string ): void{
+    this.onDelete.emit(id)
+    console.log(id);
+
   }
 }
